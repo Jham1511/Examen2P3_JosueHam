@@ -10,10 +10,6 @@ private:
     vector<T> datosColumna;
 
 public:
-    void agregarValores (T valores) {
-        datosColumna.push_back(valores);
-    }
-
     ~Columna() {
         delete &datosColumna;
     }
@@ -21,5 +17,9 @@ public:
 
     vector<T>& getVector() {
         return datosColumna;
+    }
+
+    void agregarValores(T valores) {
+        datosColumna.push_back(valores);
     }
 };

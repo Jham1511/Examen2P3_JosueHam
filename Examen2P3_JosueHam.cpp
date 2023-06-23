@@ -23,13 +23,19 @@ int main()
 {
     int opcion = menu();
 	bool leyoArchivo = false;
+	//Tabla
 	Tabla* tab = new Tabla;
+	//Columnas opcion 1 y 2
 	Columna<string>* nombreCol = new Columna<string>;
 	Columna<string>* apellidoCol = new Columna<string>;
 	Columna<int>* edadCol = new Columna<int>;
 	Columna<float>* notaExamenPCol = new Columna<float>;
 	Columna<float>* notaAcumulativoCol = new Columna<float>;
 	Columna<float>* notaExamenFCol = new Columna<float>;
+
+	//Opcion 3
+	Columna<string>* nombresCompletos = new Columna<string>;
+	Columna<float>* notaFinal =  new Columna<float>;
 	while (opcion!=5)
 	{
 		switch (opcion) {
@@ -104,9 +110,18 @@ int main()
 		case 3: {
 			if (leyoArchivo)
 			{
-				Columna<string>* nombresCompletos;
-				Columna<int>* edades;
-				Columna<float>* notaFinal;
+				
+
+				for (int i = 0; i < nombreCol->getVector().size(); i++)
+				{
+					printf("\n");
+					nombresCompletos->agregarValores(nombreCol->getVector()[i] + " " + apellidoCol->getVector()[i]);
+					cout << "Nombre Completo: " << nombresCompletos->getVector()[i] << endl;
+					cout << "Edad: " << edadCol->getVector()[i] << endl;
+					notaFinal->agregarValores(notaExamenFCol->getVector()[i] + notaExamenPCol->getVector()[i] + notaAcumulativoCol->getVector()[i]);
+					cout << "Nota Final: " << notaFinal->getVector()[i] << endl;
+					printf("\n");
+				}
 			}
 			else {
 				cout << "Se necesita leer el archivo antes de fusion de columnas" << endl;
