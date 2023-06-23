@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 int menu() {
@@ -22,6 +24,29 @@ int main()
 	{
 		switch (opcion) {
 		case 1: {
+			string linea;
+			fstream archivoTexto;
+			archivoTexto.open("RegistrosUNITEC.txt");
+			while (!archivoTexto.eof())
+			{
+				while (getline(archivoTexto,linea))
+				{
+					string nombre, apellido, strEdad, strNotaExamenP, strNotaAcumulativo, strNotaExamenF;
+					stringstream stream(linea);
+
+					getline(stream, nombre, ',');
+					getline(stream, apellido, ',');
+					getline(stream, strEdad, ',');
+					getline(stream, strNotaExamenP, ',');
+					getline(stream, strNotaAcumulativo, ',');
+					getline(stream, strNotaExamenF, ',');
+
+					int edad = stoi(strEdad);
+					float notaExamenP = stoi(strNotaExamenP);
+					float notaAcumulativo = stoi(strNotaAcumulativo);
+					float notaExamenF = stoi(strNotaExamenF);
+				}
+			}
 
 			break;
 		}
