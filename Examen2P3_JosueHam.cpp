@@ -75,6 +75,18 @@ int main()
 		case 2: {
 			if (leyoArchivo)
 			{
+				tab->setNombres(nombreCol);
+				for (int i = 0; i < nombreCol->getVector().size(); i++)
+				{
+					printf("\n");
+					cout << "Nombre: " << nombreCol->getVector()[i] << endl
+						 << "Apellido: " << apellidoCol->getVector()[i] << endl
+						 << "Edad: " << edadCol->getVector()[i] << endl
+					 	 << "Nota Examen P: " << notaExamenPCol->getVector()[i] << endl
+						 << "Nota Acumulativo: " << notaAcumulativoCol->getVector()[i] << endl
+						 << "Nota Examen F: " << notaExamenFCol->getVector()[i] << endl;
+					printf("\n");
+				}
 
 			}
 			else {
@@ -85,7 +97,9 @@ int main()
 		case 3: {
 			if (leyoArchivo)
 			{
-
+				Columna<string>* nombresCompletos;
+				Columna<int>* edades;
+				Columna<float>* notaFinal;
 			}
 			else {
 				cout << "Se necesita leer el archivo antes de fusion de columnas" << endl;

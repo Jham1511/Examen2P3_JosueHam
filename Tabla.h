@@ -25,4 +25,10 @@ public:
 	~Tabla() {
 		delete[] nombres, apellidos, edades, notasAcumulativo, notasExamenF, notasExamenP;
 	}
+	Columna<string>* getNombres() {
+		return nombres;
+	}
+	void setNombres(Columna<string>* nombres) {
+		this->nombres = nombres;
+	}
 };

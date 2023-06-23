@@ -15,10 +15,7 @@ public:
     }
 
     ~Columna() {
-        for (int i = 0; i < datosColumna.size(); i++)
-        {
-           // delete datosColumna[i];
-        }
+        delete &datosColumna;
     }
 
 
