@@ -28,7 +28,41 @@ public:
 	Columna<string>* getNombres() {
 		return nombres;
 	}
+	Columna<string>* getApellidos() {
+		return apellidos;
+	}
+
+	Columna<int>* getEdades() {
+		return edades;
+	}
+
+	Columna<float>* getExamenF() {
+		return notasExamenF;
+	}
+	Columna<float>* getExamenP() {
+		return notasExamenP;
+	}
+	Columna<float>* getAcumulativo() {
+		return notasAcumulativo;
+	}
 	void setNombres(Columna<string>* nombres) {
 		this->nombres = nombres;
+	}
+	void setApellidos(Columna<string>* apellidos) {
+		this->apellidos = apellidos;
+	}
+
+	void setEdades(Columna<int>* edad) {
+		this->edades = edad;
+	}
+
+	void setExamenP(Columna<float>* examenP) {
+		this->notasExamenP = examenP;
+	}
+	void setExamenF(Columna<float>* examenF) {
+		this->notasExamenF = examenF;
+	}
+	void setAcumulativo(Columna<float>* acumulativo) {
+		this->notasAcumulativo = acumulativo;
 	}
 };

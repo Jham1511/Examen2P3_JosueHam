@@ -69,6 +69,7 @@ int main()
 					
 				}
 			}
+			printf("\n");
 			cout << "Datos cargados y guardados correctamente" << endl;
 			break;
 		}
@@ -76,15 +77,21 @@ int main()
 			if (leyoArchivo)
 			{
 				tab->setNombres(nombreCol);
+				tab->setApellidos(apellidoCol);
+				tab->setEdades(edadCol);
+				tab->setExamenP(notaExamenPCol);
+				tab->setExamenF(notaExamenFCol);
+				tab->setAcumulativo(notaAcumulativoCol);
+
 				for (int i = 0; i < nombreCol->getVector().size(); i++)
 				{
 					printf("\n");
-					cout << "Nombre: " << nombreCol->getVector()[i] << endl
-						 << "Apellido: " << apellidoCol->getVector()[i] << endl
-						 << "Edad: " << edadCol->getVector()[i] << endl
-					 	 << "Nota Examen P: " << notaExamenPCol->getVector()[i] << endl
-						 << "Nota Acumulativo: " << notaAcumulativoCol->getVector()[i] << endl
-						 << "Nota Examen F: " << notaExamenFCol->getVector()[i] << endl;
+					cout << "Nombre: " << tab->getNombres()->getVector()[i] << endl
+						 << "Apellido: " << tab->getApellidos()->getVector()[i] << endl
+						 << "Edad: " << tab->getEdades()->getVector()[i] << endl
+					 	 << "Nota Examen P: " << tab->getExamenP()->getVector()[i] << endl
+						 << "Nota Acumulativo: " << tab->getAcumulativo()->getVector()[i] << endl
+						 << "Nota Examen F: " << tab->getExamenF()->getVector()[i] << endl;
 					printf("\n");
 				}
 
@@ -123,6 +130,7 @@ int main()
 		default:
 			nombreCol->~Columna();
 			tab->~Tabla();
+			leyoArchivo = false;
 			cout << "..." << endl;
 			cout << "\n";
 		}//Fin del switch
