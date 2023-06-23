@@ -1,4 +1,5 @@
 #pragma once
+#include "Columna.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -10,8 +11,17 @@ private:
 	Columna<float>* notasExamenP;
 	Columna<float>* notasAcumulativo;
 	Columna<float>* notasExamenF;
+
 public:
-	Tabla();
+    Tabla() {
+        nombres = new Columna<string>();
+        apellidos = new Columna<string>();
+        edades = new Columna<int>();
+        notasExamenP = new Columna<float>();
+        notasAcumulativo = new Columna<float>();
+        notasExamenF = new Columna<float>();
+    }
+
 	~Tabla() {
 		delete[] nombres, apellidos, edades, notasAcumulativo, notasExamenF, notasExamenP;
 	}
