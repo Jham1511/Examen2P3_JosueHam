@@ -1,0 +1,7 @@
+Walter Reyes,21,95,Aprobó
+Monica Castillo,20,100,Aprobó
+Ronal Zuniga,21,85,Aprobó
+Mike Tyzon,56,55,Reprobó
+Ewan Mcgregor,52,100,Aprobó
+Ian Johsnon,45,30,Reprobó
+Felipe Garay,80,56,Reprobó

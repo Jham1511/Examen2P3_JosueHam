@@ -36,6 +36,10 @@ int main()
 	//Opcion 3
 	Columna<string>* nombresCompletos = new Columna<string>;
 	Columna<float>* notaFinal =  new Columna<float>;
+
+	//Opcion 4
+	Columna<string>* EstadoClase = new Columna<string>;
+	bool hizoFusion = false;
 	while (opcion!=5)
 	{
 		switch (opcion) {
@@ -111,7 +115,7 @@ int main()
 			if (leyoArchivo)
 			{
 				
-
+				hizoFusion = true;
 				for (int i = 0; i < nombreCol->getVector().size(); i++)
 				{
 					printf("\n");
@@ -131,10 +135,25 @@ int main()
 		case 4: {
 			if (leyoArchivo)
 			{
-				fstream archivo("RegistrosFusionados.txt", ios::in);
-				while (!archivo.eof())
+				if (hizoFusion)
 				{
-
+					ofstream archivo("RegistrosFusionados.txt", ios::out);
+						for (int i = 0; i < nombresCompletos->getVector().size(); i++)
+						{
+							if (notaFinal->getVector()[i] >= 60)
+							{
+								EstadoClase->agregarValores("Aprobó");
+							}
+							else {
+								EstadoClase->agregarValores("Reprobó");
+							}
+							archivo << nombresCompletos->getVector()[i] << "," << edadCol->getVector()[i] 
+								<< "," << notaFinal->getVector()[i] << "," << EstadoClase->getVector()[i] << endl;
+						}//Fin del for
+						cout << "Registros fusionados exitosamente" << endl;
+				}
+				else {
+					cout << "Debe realizar la fusión antes de guardarla" << endl;
 				}
 			}
 			else {
